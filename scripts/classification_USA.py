@@ -60,7 +60,7 @@ for index in all_counties.index:
 
     partial_path = os.path.join(out_path,region_type)
     county_id2folder[geoid] = partial_path
-    name_out = f"{geoid}_{name}.shp"
+    name_out = f"{geoid}_{name}.gpkg"
     path_out = os.path.join(partial_path,name_out)
     county_id2file_name[geoid] = path_out
     name_out = f"{geoid}_{name}.pickle"
@@ -93,8 +93,13 @@ for i, county_i in enumerate(all_counties.index):
         gdf_identified.index = pd.MultiIndex.from_tuples(gdf_identified.index, names=['el_type', 'osmid'])
     
     gdf_identified = map_buildings.use_auxiliary_data(gdf_identified, footprint_id2features)
+
+    #Add extra col
+    gdf_identified['no_match'] = gdf_identified['aux info'] == 'residential_unknown_tag'
+
+
     print(f"Saving: {filename_out}")
-    gdf_identified.to_file(filename_out)
+    gdf_identified.to_file(filename_out, driver="GPKG")
 
     # This code can be used to save all of the auxiliary data.
     # filename_auxiliary_data_out = county_id2pickle_name[county_geoid]
