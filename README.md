@@ -47,4 +47,5 @@ This script can take a long time to run; the already processed dataset can be fo
 
 If you publish a scientific paper that uses this material, please cite the following:
 
-Arruda HF, Reia SM, Ruan S,  Atwal KS, Kavak H, Anderson T, Pfoser D. Extracting the U.S. building types from OpenStreetMap data. arXiv preprint [arXiv:2409.05692](https://arxiv.org/pdf/2409.05692). 2024.
+F. de Arruda, H., Reia, S.M., Ruan, S. et al. An OpenStreetMap derived building classification dataset for the United States. Sci Data 11, 1210 (2024). https://doi.org/10.1038/s41597-024-04046-w
+
